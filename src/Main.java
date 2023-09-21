@@ -11,7 +11,7 @@ public class Main {
         System.out.print("Enter a cost + cents, type in -1 to end: ");
         double costPerThing = scan.nextDouble();
 
-        while (costPerThing != -1 ) {
+        while (costPerThing != -1.0 ) {
             System.out.print("Enter another cost + cents, type in -1 to end: ");
             costPerThing = costPerThing + scan.nextDouble();
         }
