@@ -8,20 +8,26 @@ public class Main {
         double beforeTip = 0;
         double totalTip = 0;
         double tipPerPerson = 0;
+        double costPerThing = 0;
 
         System.out.println("Welcome...");
         System.out.print("How many people are you sharing your meal with? ");
         int people = scan.nextInt();
-        System.out.print("How much do you want to tip? It is recommended to tip above 15 percent! ");
+        scan.nextLine();
+        System.out.print("How much do you want to tip? ");
         int percent = scan.nextInt();
-        System.out.print("Enter a cost + cents, type in -1 to end: ");
-        double costPerThing = scan.nextDouble();
+        scan.nextLine();
+        if (percent < 10) {
+            System. exit(0);
+        }
 
-        while (costPerThing != -1 ) {
+
+        while (costPerThing != -1) {
             totalCost += costPerThing;
             System.out.print("Enter another cost + cents, type in -1 to end: ");
             costPerThing = scan.nextDouble();
         }
+
 
         if (totalCost > 0) {
             System.out.println("-------------------");
@@ -41,12 +47,5 @@ public class Main {
             System.out.println("Tip per person: $" + tipPerPerson);
             System.out.println("Total cost per person: $" + (tipPerPerson + beforeTip));
         }
-
-
-
-
-
-
-
     }
 }
