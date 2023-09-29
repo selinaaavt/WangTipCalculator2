@@ -20,7 +20,7 @@ public class Main {
         if (percent < 10) {
             System. exit(0);
         }
-
+//hi
 
         while (costPerThing != -1) {
             totalCost += costPerThing;
