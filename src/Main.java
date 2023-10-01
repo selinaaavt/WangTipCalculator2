@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.io.*;
+import java.util.*;
+import java.util.function.Supplier;
 public class Main {
     public static void main(String[] args) {
         int n = 2;
@@ -9,6 +11,7 @@ public class Main {
         double totalTip = 0;
         double tipPerPerson = 0;
         double costPerThing = 0;
+        ArrayList<String> list = new ArrayList<String>();
 
         System.out.println("Welcome...");
         System.out.print("How many people are you sharing your meal with? ");
@@ -17,15 +20,24 @@ public class Main {
         System.out.print("How much do you want to tip? ");
         int percent = scan.nextInt();
         scan.nextLine();
-        if (percent < 10) {
-            System. exit(0);
-        }
+            while (percent < 10) {
+                System.out.print("Please tip higher... : ");
+                percent = scan.nextInt();
+            }
+
 //hi
 
         while (costPerThing != -1) {
             totalCost += costPerThing;
             System.out.print("Enter another cost + cents, type in -1 to end: ");
             costPerThing = scan.nextDouble();
+            if (costPerThing != -1) {
+                scan.nextLine();
+                System.out.print("Enter item name: ");
+                String itemName = scan.nextLine();
+                list.add(itemName);
+
+            }
         }
 
 
@@ -45,7 +57,14 @@ public class Main {
             tipPerPerson =Math.round(tipPerPerson * Math.pow(10, n))
                     / Math.pow(10, n);
             System.out.println("Tip per person: $" + tipPerPerson);
-            System.out.println("Total cost per person: $" + (tipPerPerson + beforeTip));
+            System.out.println("-------------------");
+            System.out.println("Items ordered: ");
+
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println(list.get(i));
+            }
+
+
         }
     }
 }
